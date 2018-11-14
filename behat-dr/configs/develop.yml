@@ -1,0 +1,58 @@
+develop:
+  autoload:
+    '': tests/features/bootstrap
+  formatters:
+    html:
+      output_path: '%paths.base%/reports'
+    pretty:
+      decorated: true
+      verbose: false
+      time: true
+      language: en
+      output_path: null
+      multiline_arguments: true
+  extensions:
+    Behat\MinkExtension:
+      goutte: ~
+      selenium2: ~
+      files_path: '%paths.base%/tests/files'
+      # If necessary, change this to the actual URL of your Sanoma site.
+      base_url: 'https://sanomalifestyle:kanapalat@dev-menaiset.smf.aws.sanomacloud.net'
+    Drupal\DrupalExtension:
+      drupal:
+        # This assumes that we're running Behat from within
+        drupal_root: '/vagrant/drupal/current'
+      api_driver: drupal
+      drush_driver: drush
+      blackbox: ~
+      region_map:
+        header: '#header'
+        # header_area: '#edit-group-header-area'
+        content: '#main'
+        # content_area: '#edit-group-content-area'
+        sidebar: '.region-sidebar'
+        # sidebar_area: '#edit-group-sidebar-area'
+        footer: '#footer-wrapper'
+        dropdown_menu: '.main-menu.menu__link.menu'
+      selectors:
+        login_form_selector: '#user-login-form'
+        message_selector: '.messages'
+        error_message_selector: '.messages.error'
+        success_message_selector: '.messages.status'
+      text:
+        log_out: "Log out"
+        log_in: "Log in"
+    Drupal\TqExtension:
+      wait_for_email: 10
+      wait_for_redirect: 60
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+      renderer: Twig
+      name: html
+      file_name: index
+      print_args: true
+      print_outp: true
+      loop_break: true
+    IntegratedExperts\BehatScreenshotExtension:
+      dir: '%paths.base%/reports/screenshots'
+      fail: true #make screenshots on failure
+      purge: false #don't purge folder on each run

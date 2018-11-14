@@ -1,0 +1,91 @@
+default:
+  suites:
+    kekmama:
+      paths:
+        - '%paths.base%/tests/features'
+      filters:
+        tags: '@kekmama'
+      contexts:
+        - FeatureContext:
+            parameters:
+              base_url: 'http://local.kekmama.nl'
+        - DrupalContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+        - IntegratedExperts\BehatScreenshotExtension\Context\ScreenshotContext
+      extensions:
+        Drupal\DrupalExtension:
+          drupal:
+            # This assumes that we're running Behat from within
+            drupal_root: '/vagrant/drupal/current'
+
+develop:
+  suites:
+    kekmama:
+      paths:
+        - '%paths.base%/tests/features'
+      filters:
+        tags: '@kekmama'
+      contexts:
+        - FeatureContext:
+            parameters:
+              base_url: 'https://sanomalifestyle:kanapalat@dev-kekmama.smf.aws.sanomacloud.net'
+        - DrupalContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+        - IntegratedExperts\BehatScreenshotExtension\Context\ScreenshotContext
+      extensions:
+        Drupal\DrupalExtension:
+          drupal:
+            # This assumes that we're running Behat from within
+            drupal_root: '/vagrant/drupal/current'
+
+staging:
+  suites:
+    kekmama:
+      paths:
+        - '%paths.base%/tests/features'
+      filters:
+        tags: '@kekmama'
+      contexts:
+        - FeatureContext:
+            parameters:
+              base_url: 'https://sanomalifestyle:kanapalat@staging-kekmama.smf.aws.sanomacloud.net'
+        - DrupalContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+        - IntegratedExperts\BehatScreenshotExtension\Context\ScreenshotContext
+      extensions:
+        Drupal\DrupalExtension:
+          drupal:
+            # This assumes that we're running Behat from within
+            drupal_root: '/vagrant/drupal/current'
+
+production:
+  suites:
+    kekmama:
+      paths:
+        - '%paths.base%/tests/features'
+      filters:
+        tags: '@kekmama'
+      contexts:
+        - FeatureContext:
+            parameters:
+              base_url: 'https://www.kekmama.nl'
+        - DrupalContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+        - IntegratedExperts\BehatScreenshotExtension\Context\ScreenshotContext
+      extensions:
+        Drupal\DrupalExtension:
+          drupal:
+            # This assumes that we're running Behat from within
+            drupal_root: '/vagrant/drupal/current'
