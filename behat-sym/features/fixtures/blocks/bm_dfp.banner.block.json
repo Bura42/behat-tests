@@ -1,0 +1,67 @@
+{
+  "name": {
+    "dataType": "string",
+    "required": true,
+    "default": "bm_dfp.banner.block",
+    "description": "Identifier",
+    "readonly": true,
+    "format": "bm_dfp.banner.block"
+  },
+  "slotId": {
+    "dataType": "enum",
+    "required": false,
+    "default": null,
+    "description": "",
+    "readonly": false,
+    "format": "[Advertorial_1|Advertorial_2|Advertorial_3|Jobindex|Leaderboard_1|Leaderboard_2|Leaderboard_2_longread|Leaderboard_3|Square_1|Square_2|Square_3|Square_4|Square_5|Square_marketing_1|Square_marketing_2|Sticky_ipad|Sticky_left|Sticky_right|Top_marketing|Out_stream|Article_marketing|Generic_1|Generic_2|Leaderboard_4|Leaderboard_5|Leaderboard_6]"
+  },
+  "template": {
+    "dataType": "object (DfpBanner)",
+    "required": true,
+    "default": null,
+    "description": "",
+    "readonly": false,
+    "format": "{not blank}",
+    "implementations": [
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "banner_dfp",
+          "description": "Identifier",
+          "default": "banner_dfp"
+        },
+        "cssClasses": {
+          "dataType": "string",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        },
+        "isSticky": {
+          "dataType": "boolean",
+          "required": false,
+          "default": false,
+          "description": "",
+          "readonly": false
+        }
+      }
+    ]
+  },
+  "unitName": {
+    "dataType": "string",
+    "required": false,
+    "default": null,
+    "description": "",
+    "readonly": false
+  },
+  "devices": {
+    "dataType": "enumArray",
+    "required": false,
+    "default": [],
+    "description": "",
+    "readonly": false,
+    "format": "[desktop|mobile|tablet]"
+  }
+}

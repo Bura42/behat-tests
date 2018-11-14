@@ -1,0 +1,45 @@
+default:
+    suites:
+        default:
+            paths: [ "%paths.base%/features" ]
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext: ~
+                - WebContext: ~
+                - ArticleContext: ~
+                - TagContext: ~
+                - PageContext:
+                    pageGenerator: '@bm_block.page.generator.translating'
+                    translator: '@bm_block.fixture.id_translator'
+                - BuildingBlockContext: ~
+                - SiteManagerApiContext: ~
+                - AssetsContext: ~
+                - SocialMediaContext: ~
+                - AuthorContext: ~
+                - MenuContext: ~
+                - ResizeMainWindowContext: ~
+                - SymfonyDoctrineContext: ~
+                - SessionContext: ~
+                - TrackingContext: ~
+                - RoutingContext: ~
+                - SnippetContext: ~
+                - BannerConfigurationContext: ~
+                - RestContext:
+                    - base_uri: 'http://behat.bdk.dev:8080'
+            mink_session: default
+            mink_javascript_session: selenium2
+    gherkin:
+        filters:
+            tags: ~@integration
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                env: test
+        Behat\MinkExtension:
+            base_url: 'http://behat.bdk.dev:8080'
+            browser_name: chrome
+            selenium2:
+                wd_host: 'selenium:4444/wd/hub'
+            sessions:
+                default:
+                    goutte: ~
+            goutte: ~

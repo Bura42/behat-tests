@@ -1,0 +1,30 @@
+{
+  "name": {
+    "dataType": "string",
+    "required": true,
+    "default": "bm_app.article.header",
+    "description": "Identifier",
+    "readonly": true,
+    "format": "bm_app.article.header"
+  },
+  "template": {
+    "dataType": "object (AbstractArticleHeader)",
+    "required": true,
+    "default": null,
+    "description": "",
+    "readonly": false,
+    "format": "{not blank}",
+    "implementations": [
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "article_header",
+          "description": "Identifier",
+          "default": "article_header"
+        }
+      }
+    ]
+  }
+}

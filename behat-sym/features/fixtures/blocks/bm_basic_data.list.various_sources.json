@@ -1,0 +1,723 @@
+{
+  "name": {
+    "dataType": "string",
+    "required": true,
+    "default": "bm_basic_data.list.various_sources",
+    "description": "Identifier",
+    "readonly": true,
+    "format": "bm_basic_data.list.various_sources"
+  },
+  "source": {
+    "dataType": "object (AbstractDataProvider)",
+    "required": true,
+    "default": null,
+    "description": "",
+    "readonly": false,
+    "format": "{not blank}",
+    "implementations": [
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_basic_data.data_provider.content_from_ordered_list_provider",
+          "description": "Identifier",
+          "default": "bm_basic_data.data_provider.content_from_ordered_list_provider"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": true,
+          "default": 1,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "loadMoreLimit": {
+          "dataType": "integer",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        },
+        "offset": {
+          "dataType": "integer",
+          "required": true,
+          "default": 0,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "itemsList": {
+          "dataType": "object (ItemsList)",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "children": {
+            "id": {
+              "dataType": "string",
+              "required": true,
+              "default": null,
+              "description": "",
+              "readonly": false,
+              "format": "{not blank}"
+            }
+          }
+        },
+        "isLatestNews": {
+          "dataType": "boolean",
+          "required": false,
+          "default": false,
+          "description": "",
+          "readonly": false
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_block.data_provider.content_latest_news",
+          "description": "Identifier",
+          "default": "bm_block.data_provider.content_latest_news"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": true,
+          "default": 1,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "offset": {
+          "dataType": "integer",
+          "required": true,
+          "default": 0,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "loadMoreLimit": {
+          "dataType": "integer",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        },
+        "sortKey": {
+          "dataType": "enum",
+          "required": false,
+          "default": "created",
+          "description": "",
+          "readonly": false,
+          "format": "[created|id]"
+        },
+        "sortOrder": {
+          "dataType": "enum",
+          "required": false,
+          "default": "DESC",
+          "description": "",
+          "readonly": false,
+          "format": "[DESC|ASC]"
+        },
+        "excludedType": {
+          "dataType": "enum",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "format": "[none|BM\\Bundle\\NewsArticleBundle\\Entity\\Content\\NewsArticle|BM\\Bundle\\NewsArticlePlusBundle\\Entity\\Content\\NewsArticlePlus|BM\\Bundle\\AdvertorialArticleBundle\\Entity\\Content\\AdvertorialArticle|BM\\Bundle\\AdvertorialVideoArticleBundle\\Entity\\Content\\AdvertorialVideoArticle|BM\\Bundle\\LargeArticleBundle\\Entity\\Content\\LargeArticle|BM\\Bundle\\LargeArticlePlusBundle\\Entity\\Content\\LargeArticlePlus|BM\\Bundle\\VideoArticleBundle\\Entity\\Content\\VideoArticle|BM\\Bundle\\VideoArticlePlusBundle\\Entity\\Content\\VideoArticlePlus|BM\\Bundle\\LongReadArticleBundle\\Entity\\Content\\LongReadArticle|BM\\Bundle\\LongReadArticlePlusBundle\\Entity\\Content\\LongReadArticlePlus|BM\\Bundle\\ImageGalleryBundle\\Entity\\Content\\ImageGallery|BM\\Bundle\\ExternalArticleBundle\\Entity\\Content\\ExternalArticle|BM\\Bundle\\ExternalArticlePlusBundle\\Entity\\Content\\ExternalArticlePlus|BM\\Bundle\\LongReadCleanArticleBundle\\Entity\\Content\\LongReadCleanArticle|BM\\Bundle\\LongReadCleanPlusArticleBundle\\Entity\\Content\\LongReadCleanPlusArticle|BM\\Bundle\\BlogsArticleBundle\\Entity\\Content\\BlogsArticle|BM\\Bundle\\BlogsArticlePlusBundle\\Entity\\Content\\BlogsArticlePlus]"
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_basic_data.data_provider.content_by_criteria_provider",
+          "description": "Identifier",
+          "default": "bm_basic_data.data_provider.content_by_criteria_provider"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": true,
+          "default": 1,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "offset": {
+          "dataType": "integer",
+          "required": true,
+          "default": 0,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "author": {
+          "dataType": "object (Author)",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "children": {
+            "id": {
+              "dataType": "string",
+              "required": true,
+              "default": null,
+              "description": "",
+              "readonly": false,
+              "format": "{not blank}"
+            }
+          }
+        },
+        "type": {
+          "dataType": "enum",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "format": "[BM\\Bundle\\NewsArticleBundle\\Entity\\Content\\NewsArticle|BM\\Bundle\\NewsArticlePlusBundle\\Entity\\Content\\NewsArticlePlus|BM\\Bundle\\AdvertorialArticleBundle\\Entity\\Content\\AdvertorialArticle|BM\\Bundle\\AdvertorialVideoArticleBundle\\Entity\\Content\\AdvertorialVideoArticle|BM\\Bundle\\LargeArticleBundle\\Entity\\Content\\LargeArticle|BM\\Bundle\\LargeArticlePlusBundle\\Entity\\Content\\LargeArticlePlus|BM\\Bundle\\VideoArticleBundle\\Entity\\Content\\VideoArticle|BM\\Bundle\\VideoArticlePlusBundle\\Entity\\Content\\VideoArticlePlus|BM\\Bundle\\LongReadArticleBundle\\Entity\\Content\\LongReadArticle|BM\\Bundle\\LongReadArticlePlusBundle\\Entity\\Content\\LongReadArticlePlus|BM\\Bundle\\ImageGalleryBundle\\Entity\\Content\\ImageGallery|BM\\Bundle\\ExternalArticleBundle\\Entity\\Content\\ExternalArticle|BM\\Bundle\\ExternalArticlePlusBundle\\Entity\\Content\\ExternalArticlePlus|BM\\Bundle\\LongReadCleanArticleBundle\\Entity\\Content\\LongReadCleanArticle|BM\\Bundle\\LongReadCleanPlusArticleBundle\\Entity\\Content\\LongReadCleanPlusArticle|BM\\Bundle\\BlogsArticleBundle\\Entity\\Content\\BlogsArticle|BM\\Bundle\\BlogsArticlePlusBundle\\Entity\\Content\\BlogsArticlePlus]"
+        },
+        "types": {
+          "dataType": "enumArray",
+          "required": false,
+          "default": [],
+          "description": "",
+          "readonly": false,
+          "format": "[BM\\Bundle\\NewsArticleBundle\\Entity\\Content\\NewsArticle|BM\\Bundle\\NewsArticlePlusBundle\\Entity\\Content\\NewsArticlePlus|BM\\Bundle\\AdvertorialArticleBundle\\Entity\\Content\\AdvertorialArticle|BM\\Bundle\\AdvertorialVideoArticleBundle\\Entity\\Content\\AdvertorialVideoArticle|BM\\Bundle\\LargeArticleBundle\\Entity\\Content\\LargeArticle|BM\\Bundle\\LargeArticlePlusBundle\\Entity\\Content\\LargeArticlePlus|BM\\Bundle\\VideoArticleBundle\\Entity\\Content\\VideoArticle|BM\\Bundle\\VideoArticlePlusBundle\\Entity\\Content\\VideoArticlePlus|BM\\Bundle\\LongReadArticleBundle\\Entity\\Content\\LongReadArticle|BM\\Bundle\\LongReadArticlePlusBundle\\Entity\\Content\\LongReadArticlePlus|BM\\Bundle\\ImageGalleryBundle\\Entity\\Content\\ImageGallery|BM\\Bundle\\ExternalArticleBundle\\Entity\\Content\\ExternalArticle|BM\\Bundle\\ExternalArticlePlusBundle\\Entity\\Content\\ExternalArticlePlus|BM\\Bundle\\LongReadCleanArticleBundle\\Entity\\Content\\LongReadCleanArticle|BM\\Bundle\\LongReadCleanPlusArticleBundle\\Entity\\Content\\LongReadCleanPlusArticle|BM\\Bundle\\BlogsArticleBundle\\Entity\\Content\\BlogsArticle|BM\\Bundle\\BlogsArticlePlusBundle\\Entity\\Content\\BlogsArticlePlus]"
+        },
+        "tag": {
+          "dataType": "object (Tag)",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "children": {
+            "id": {
+              "dataType": "string",
+              "required": true,
+              "default": null,
+              "description": "",
+              "readonly": false,
+              "format": "{not blank}"
+            }
+          }
+        },
+        "isLatestNews": {
+          "dataType": "boolean",
+          "required": false,
+          "default": false,
+          "description": "",
+          "readonly": false
+        },
+        "loadMoreLimit": {
+          "dataType": "integer",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        },
+        "sortKey": {
+          "dataType": "enum",
+          "required": false,
+          "default": "created",
+          "description": "",
+          "readonly": false,
+          "format": "[created|id]"
+        },
+        "sortOrder": {
+          "dataType": "enum",
+          "required": false,
+          "default": "DESC",
+          "description": "",
+          "readonly": false,
+          "format": "[DESC|ASC]"
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_basic_data.data_provider.related_content_provider",
+          "description": "Identifier",
+          "default": "bm_basic_data.data_provider.related_content_provider"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": true,
+          "default": 1,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "offset": {
+          "dataType": "integer",
+          "required": true,
+          "default": 0,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "loadMoreLimit": {
+          "dataType": "integer",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_external_article.data_provider.rss",
+          "description": "Identifier",
+          "default": "bm_external_article.data_provider.rss"
+        },
+        "type": {
+          "dataType": "enum",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "format": "[last_5_articles_from_blogs|list_articles_from_politiske_puls|last_articles_from_businessdk]"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        },
+        "offset": {
+          "dataType": "integer",
+          "required": false,
+          "default": 0,
+          "description": "",
+          "readonly": false
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_social.data_provider.facebook_top_list_provider",
+          "description": "Identifier",
+          "default": "bm_social.data_provider.facebook_top_list_provider"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": true,
+          "default": 1,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_most_read.data_provider.front.most_read",
+          "description": "Identifier",
+          "default": "bm_most_read.data_provider.front.most_read"
+        },
+        "type": {
+          "dataType": "enum",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "format": "[last_3_days|last_1_day|last_3_hours|last_3_hours_politiko_tag|last_1_day_politiko_tag|last_1_week_politiko_tag|last_3_hours_debat_tag|last_1_day_debat_tag|last_1_week_debat_tag|last_1_day_kronikker_tag|last_1_day_kommentarer_tag|last_1_day_berlingske_mener_tag|last_1_day_groft_sagt_tag|last_3_hours_globalt_tag|last_1_day_globalt_tag|last_1_week_globalt_tag|last_3_hours_nationalt_tag|last_1_day_nationalt_tag|last_1_week_nationalt_tag|last_3_hours_kultur_tag|last_1_day_kultur_tag|last_1_week_kultur_tag|last_1_day_quiz_tag|last_1_day_musik_tag|last_1_day_b\u00f8ger_tag|last_1_day_koncerter_tag|last_1_day_kunst_tag|last_1_day_scene_tag|last_1_day_film_tag|last_3_hours_navne_tag|last_1_day_navne_tag|last_1_week_navne_tag|last_1_day_d\u00f8dsfald_tag|last_1_day_jubil\u00e6um_tag|last_1_day_f\u00f8dselsdag_tag|last_1_day_audiens_tag|last_1_day_dagen_i_dag_tag|last_3_hours_tech_tag|last_1_day_tech_tag|last_1_week_tech_tag|last_3_hours_viden_tag|last_1_day_viden_tag|last_1_week_viden_tag|last_3_hours_livsstil_tag|last_1_day_livsstil_tag|last_1_week_livsstil_tag|last_1_day_mad_tag|last_1_day_mode_tag|last_1_day_sundhed_tag|last_1_day_relationer_tag|last_1_day_personlig_udvikling_tag|last_1_day_bolig_tag|last_3_hours_rejseliv_tag|last_1_day_rejseliv_tag|last_1_week_rejseliv_tag|last_3_hours_sport_tag|last_1_day_sport_tag|last_1_week_sport_tag]"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        },
+        "offset": {
+          "dataType": "integer",
+          "required": false,
+          "default": 0,
+          "description": "",
+          "readonly": false
+        },
+        "description": {
+          "dataType": "string",
+          "required": false,
+          "default": "Provides list of most read articles from our own logs",
+          "description": "Human readable description of data source.",
+          "readonly": true
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_block.data_provider.content_by_author",
+          "description": "Identifier",
+          "default": "bm_block.data_provider.content_by_author"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": true,
+          "default": 1,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "offset": {
+          "dataType": "integer",
+          "required": true,
+          "default": 0,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "author": {
+          "dataType": "object (Author)",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "children": {
+            "id": {
+              "dataType": "string",
+              "required": true,
+              "default": null,
+              "description": "",
+              "readonly": false,
+              "format": "{not blank}"
+            }
+          }
+        },
+        "loadMoreLimit": {
+          "dataType": "integer",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        },
+        "sortKey": {
+          "dataType": "enum",
+          "required": false,
+          "default": "created",
+          "description": "",
+          "readonly": false,
+          "format": "[created|id]"
+        },
+        "sortOrder": {
+          "dataType": "enum",
+          "required": false,
+          "default": "DESC",
+          "description": "",
+          "readonly": false,
+          "format": "[DESC|ASC]"
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_block.data_provider.content_by_tag",
+          "description": "Identifier",
+          "default": "bm_block.data_provider.content_by_tag"
+        },
+        "limit": {
+          "dataType": "integer",
+          "required": true,
+          "default": 1,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "offset": {
+          "dataType": "integer",
+          "required": true,
+          "default": 0,
+          "description": "",
+          "readonly": false,
+          "format": "{not blank}"
+        },
+        "type": {
+          "dataType": "enum",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "format": "[BM\\Bundle\\NewsArticleBundle\\Entity\\Content\\NewsArticle|BM\\Bundle\\NewsArticlePlusBundle\\Entity\\Content\\NewsArticlePlus|BM\\Bundle\\AdvertorialArticleBundle\\Entity\\Content\\AdvertorialArticle|BM\\Bundle\\AdvertorialVideoArticleBundle\\Entity\\Content\\AdvertorialVideoArticle|BM\\Bundle\\LargeArticleBundle\\Entity\\Content\\LargeArticle|BM\\Bundle\\LargeArticlePlusBundle\\Entity\\Content\\LargeArticlePlus|BM\\Bundle\\VideoArticleBundle\\Entity\\Content\\VideoArticle|BM\\Bundle\\VideoArticlePlusBundle\\Entity\\Content\\VideoArticlePlus|BM\\Bundle\\LongReadArticleBundle\\Entity\\Content\\LongReadArticle|BM\\Bundle\\LongReadArticlePlusBundle\\Entity\\Content\\LongReadArticlePlus|BM\\Bundle\\ImageGalleryBundle\\Entity\\Content\\ImageGallery|BM\\Bundle\\ExternalArticleBundle\\Entity\\Content\\ExternalArticle|BM\\Bundle\\ExternalArticlePlusBundle\\Entity\\Content\\ExternalArticlePlus|BM\\Bundle\\LongReadCleanArticleBundle\\Entity\\Content\\LongReadCleanArticle|BM\\Bundle\\LongReadCleanPlusArticleBundle\\Entity\\Content\\LongReadCleanPlusArticle|BM\\Bundle\\BlogsArticleBundle\\Entity\\Content\\BlogsArticle|BM\\Bundle\\BlogsArticlePlusBundle\\Entity\\Content\\BlogsArticlePlus]"
+        },
+        "types": {
+          "dataType": "enumArray",
+          "required": false,
+          "default": [],
+          "description": "",
+          "readonly": false,
+          "format": "[BM\\Bundle\\NewsArticleBundle\\Entity\\Content\\NewsArticle|BM\\Bundle\\NewsArticlePlusBundle\\Entity\\Content\\NewsArticlePlus|BM\\Bundle\\AdvertorialArticleBundle\\Entity\\Content\\AdvertorialArticle|BM\\Bundle\\AdvertorialVideoArticleBundle\\Entity\\Content\\AdvertorialVideoArticle|BM\\Bundle\\LargeArticleBundle\\Entity\\Content\\LargeArticle|BM\\Bundle\\LargeArticlePlusBundle\\Entity\\Content\\LargeArticlePlus|BM\\Bundle\\VideoArticleBundle\\Entity\\Content\\VideoArticle|BM\\Bundle\\VideoArticlePlusBundle\\Entity\\Content\\VideoArticlePlus|BM\\Bundle\\LongReadArticleBundle\\Entity\\Content\\LongReadArticle|BM\\Bundle\\LongReadArticlePlusBundle\\Entity\\Content\\LongReadArticlePlus|BM\\Bundle\\ImageGalleryBundle\\Entity\\Content\\ImageGallery|BM\\Bundle\\ExternalArticleBundle\\Entity\\Content\\ExternalArticle|BM\\Bundle\\ExternalArticlePlusBundle\\Entity\\Content\\ExternalArticlePlus|BM\\Bundle\\LongReadCleanArticleBundle\\Entity\\Content\\LongReadCleanArticle|BM\\Bundle\\LongReadCleanPlusArticleBundle\\Entity\\Content\\LongReadCleanPlusArticle|BM\\Bundle\\BlogsArticleBundle\\Entity\\Content\\BlogsArticle|BM\\Bundle\\BlogsArticlePlusBundle\\Entity\\Content\\BlogsArticlePlus]"
+        },
+        "tag": {
+          "dataType": "object (Tag)",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false,
+          "children": {
+            "id": {
+              "dataType": "string",
+              "required": true,
+              "default": null,
+              "description": "",
+              "readonly": false,
+              "format": "{not blank}"
+            }
+          }
+        },
+        "loadMoreLimit": {
+          "dataType": "integer",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        },
+        "sortKey": {
+          "dataType": "enum",
+          "required": false,
+          "default": "created",
+          "description": "",
+          "readonly": false,
+          "format": "[created|id]"
+        },
+        "sortOrder": {
+          "dataType": "enum",
+          "required": false,
+          "default": "DESC",
+          "description": "",
+          "readonly": false,
+          "format": "[DESC|ASC]"
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "bm_paid_content.data_provider.content_by_user_provider",
+          "description": "Identifier",
+          "default": "bm_paid_content.data_provider.content_by_user_provider"
+        },
+        "user": {
+          "dataType": "custom handler result for (BM\\Bundle\\BasicDataBundle\\Model\\DataProvider\\Identifier\\User)",
+          "required": false,
+          "default": null,
+          "description": "",
+          "readonly": false
+        }
+      }
+    ]
+  },
+  "template": {
+    "dataType": "object (ContentList)",
+    "required": true,
+    "default": null,
+    "description": "",
+    "readonly": false,
+    "format": "{not blank}",
+    "implementations": [
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "list_default",
+          "description": "Identifier",
+          "default": "list_default"
+        },
+        "listStyle": {
+          "dataType": "enum",
+          "required": false,
+          "default": "none",
+          "description": "",
+          "readonly": false,
+          "format": "[none|numeric|timestamp]"
+        },
+        "showImage": {
+          "dataType": "bool",
+          "required": false,
+          "default": false,
+          "description": "",
+          "readonly": false
+        },
+        "loadMoreText": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "readMoreText": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "readMoreLink": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "title": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "listClasses": {
+          "dataType": "string",
+          "required": false,
+          "default": "list",
+          "description": "",
+          "readonly": false
+        },
+        "disableLazyLoad": {
+          "dataType": "bool",
+          "required": false,
+          "default": false,
+          "description": "",
+          "readonly": false
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "list_blog",
+          "description": "Identifier",
+          "default": "list_blog"
+        },
+        "loadMoreText": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "readMoreText": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "readMoreLink": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "title": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "listClasses": {
+          "dataType": "string",
+          "required": false,
+          "default": "list",
+          "description": "",
+          "readonly": false
+        },
+        "disableLazyLoad": {
+          "dataType": "bool",
+          "required": false,
+          "default": false,
+          "description": "",
+          "readonly": false
+        }
+      },
+      {
+        "name": {
+          "dataType": "string",
+          "required": true,
+          "readonly": true,
+          "format": "list_advertorial",
+          "description": "Identifier",
+          "default": "list_advertorial"
+        },
+        "listStyle": {
+          "dataType": "enum",
+          "required": false,
+          "default": "none",
+          "description": "",
+          "readonly": false,
+          "format": "[none|numeric|timestamp]"
+        },
+        "showImage": {
+          "dataType": "bool",
+          "required": false,
+          "default": true,
+          "description": "",
+          "readonly": false
+        },
+        "loadMoreText": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "readMoreText": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "readMoreLink": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "title": {
+          "dataType": "string",
+          "required": false,
+          "default": "",
+          "description": "",
+          "readonly": false
+        },
+        "listClasses": {
+          "dataType": "string",
+          "required": false,
+          "default": "list",
+          "description": "",
+          "readonly": false
+        },
+        "disableLazyLoad": {
+          "dataType": "bool",
+          "required": false,
+          "default": false,
+          "description": "",
+          "readonly": false
+        }
+      }
+    ]
+  }
+}
