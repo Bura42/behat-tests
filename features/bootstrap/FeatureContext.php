@@ -12,32 +12,30 @@ use Behat\MinkExtension\Context\RawMinkContext;
 class FeatureContext extends RawMinkContext implements Context
 {
 
-
-
     /**
-     * @Given I am on wikipedia
+     * @Given I am on :sitename
      */
-    public function iAmOnWikipedia()
+    public function iAmOn($sitename)
     {
-        $this->visitPath("/");
+        $this->visitPath($sitename);
     }
 
     /**
-     * @When I search for :seachString
+     * @Then I accept cookie
      */
-    public function iSearchFor($seachString)
+    public function iAcceptCookie()
     {
-        $this->getSession()->getPage()->fillField('searchInput', $seachString);
-        $this->getSession()->getPage()->find('css','.searchButton')->click();
+        $this->getSession()->getPage()->find('css','.sccm-d-button')->click();
     }
 
     /**
-     * @Then the first heading should be :heading
+     * @Then I should see :text in the :selector element
      */
-    public function theFirstHeadingShouldBe($heading)
+    public function iShouldSeeInTheElement($text, $selector)
     {
-        $pageHeading = $this->getSession()->getPage()->find('css','.firstHeading');
+        $pageHeading = $this->getSession()->getPage()->find('css', $selector);
 
-        expect($pageHeading->getText())->toBe($heading);
+        expect($pageHeading->getText())->toBe($text);
     }
+
 }
