@@ -1,9 +1,42 @@
 default:
+  suites:
+    default:
+      contexts:
+      - FeatureContext
+      - Drupal\DrupalExtension\Context\DrupalContext
+      - Drupal\DrupalExtension\Context\MinkContext
+      - Drupal\DrupalExtension\Context\MessageContext
+      - Drupal\DrupalExtension\Context\DrushContext
   extensions:
     Behat\MinkExtension:
-      base_url: "https://en.wikipedia.org/"
-      sessions:
-        default:
-          selenium2:
-            wd_host: http://localhost:4444/wd/hub
-            browser: chrome
+      base_url: "https://www.gloria.fi/"
+      selenium2:
+        wd_host: http://localhost:4444/wd/hub
+        browser: chrome
+    Drupal\DrupalExtension:
+      blackbox: ~
+      drush:
+        alias: 'local'
+      region_map:
+        admin_menu: "#admin-menu-wrapper"
+        messages: ".messages"
+        tabs_primary: ".tabs-primary"
+        footer: "#footer-wrapper"
+menaiset:
+  suites:
+    default:
+      filters:
+        tags: "@menaiset"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-menaiset.smf.aws.sanomacloud.net/"
+gloria:
+  suites:
+    default:
+      filters:
+        tags: "@gloria"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-gloria.smf.aws.sanomacloud.net/"
+
+
