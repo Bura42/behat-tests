@@ -30,7 +30,7 @@ etlehti:
   suites:
     default:
       filters:
-        tags: '@etlehti@fi'
+        tags: '@etlehti'
   extensions:
     Behat\MinkExtension:
       base_url: "https://sanomalifestyle:kanapalat@dev-etlehti.smf.aws.sanomacloud.net/"
@@ -39,7 +39,7 @@ gloria:
   suites:
     default:
       filters:
-        tags: "@gloria, @fi"
+        tags: "@gloria"
   extensions:
     Behat\MinkExtension:
       base_url: "https://sanomalifestyle:kanapalat@dev-gloria.smf.aws.sanomacloud.net/"
@@ -151,10 +151,3 @@ superguide:
   extensions:
     Behat\MinkExtension:
       base_url: "https://sanomalifestyle:kanapalat@dev-superguide.smf.aws.sanomacloud.net/"
-
-
-
-
-
-
-
