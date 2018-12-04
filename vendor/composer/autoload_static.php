@@ -10,6 +10,8 @@ class ComposerStaticInit2d4a0dae1342d3b02e1e775f8d30ac66
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '157cb76eaee27c50f214a16dcf23bd7c' => __DIR__ . '/..' . '/bossa/phpspec2-expect/expect.php',
     );
 
@@ -29,6 +31,7 @@ class ComposerStaticInit2d4a0dae1342d3b02e1e775f8d30ac66
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Iconv\\' => 23,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Translation\\' => 30,
@@ -55,6 +58,10 @@ class ComposerStaticInit2d4a0dae1342d3b02e1e775f8d30ac66
             'Psr\\Container\\' => 14,
             'Peridot\\WebDriverManager\\' => 25,
         ),
+        'L' => 
+        array (
+            'Lakion\\Behat\\MinkDebugExtension\\' => 32,
+        ),
         'I' => 
         array (
             'Interop\\Container\\' => 18,
@@ -68,6 +75,8 @@ class ComposerStaticInit2d4a0dae1342d3b02e1e775f8d30ac66
         ),
         'D' => 
         array (
+            'Drupal\\Component\\Utility\\' => 25,
+            'Drupal\\Component\\Render\\' => 24,
             'Doctrine\\Instantiator\\' => 22,
         ),
         'B' => 
@@ -94,6 +103,10 @@ class ComposerStaticInit2d4a0dae1342d3b02e1e775f8d30ac66
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Iconv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-iconv',
         ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
@@ -171,6 +184,10 @@ class ComposerStaticInit2d4a0dae1342d3b02e1e775f8d30ac66
         array (
             0 => __DIR__ . '/..' . '/peridot-php/webdriver-manager/src',
         ),
+        'Lakion\\Behat\\MinkDebugExtension\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lakion/mink-debug-extension/src',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -190,6 +207,14 @@ class ComposerStaticInit2d4a0dae1342d3b02e1e775f8d30ac66
         'Goutte\\' => 
         array (
             0 => __DIR__ . '/..' . '/fabpot/goutte/Goutte',
+        ),
+        'Drupal\\Component\\Utility\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drupal/core-utility',
+        ),
+        'Drupal\\Component\\Render\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drupal/core-render',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -229,6 +254,26 @@ class ComposerStaticInit2d4a0dae1342d3b02e1e775f8d30ac66
         ),
         'D' => 
         array (
+            'Drupal\\Tests\\Driver' => 
+            array (
+                0 => __DIR__ . '/..' . '/drupal/drupal-driver/tests',
+            ),
+            'Drupal\\Exception' => 
+            array (
+                0 => __DIR__ . '/..' . '/drupal/drupal-extension/src',
+            ),
+            'Drupal\\DrupalExtension' => 
+            array (
+                0 => __DIR__ . '/..' . '/drupal/drupal-extension/src',
+            ),
+            'Drupal\\Drupal' => 
+            array (
+                0 => __DIR__ . '/..' . '/drupal/drupal-extension/src',
+            ),
+            'Drupal\\Driver' => 
+            array (
+                0 => __DIR__ . '/..' . '/drupal/drupal-driver/src',
+            ),
             'Diff' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/php-diff/lib',

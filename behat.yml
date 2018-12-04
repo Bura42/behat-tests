@@ -13,6 +13,9 @@ default:
       selenium2:
         wd_host: http://localhost:4444/wd/hub
         browser: chrome
+    Lakion\Behat\MinkDebugExtension:
+      directory: reports
+      screenshot: true
     Drupal\DrupalExtension:
       blackbox: ~
       drush:
@@ -22,6 +25,7 @@ default:
         messages: ".messages"
         tabs_primary: ".tabs-primary"
         footer: "#footer-wrapper"
+
 menaiset:
   suites:
     default:
@@ -30,6 +34,7 @@ menaiset:
   extensions:
     Behat\MinkExtension:
       base_url: "https://sanomalifestyle:kanapalat@dev-menaiset.smf.aws.sanomacloud.net/"
+
 gloria:
   suites:
     default:
