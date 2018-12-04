@@ -26,6 +26,51 @@ default:
         tabs_primary: ".tabs-primary"
         footer: "#footer-wrapper"
 
+etlehti:
+  suites:
+    default:
+      filters:
+        tags: '@etlehti@fi'
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-etlehti.smf.aws.sanomacloud.net/"
+
+gloria:
+  suites:
+    default:
+      filters:
+        tags: "@gloria, @fi"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-gloria.smf.aws.sanomacloud.net/"
+
+hyvaterveys:
+  suites:
+    default:
+      filters:
+        tags: "@hyvaterveys"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-hyvaterveys.smf.aws.sanomacloud.net/"
+
+kodinkuvalehti:
+  suites:
+    default:
+      filters:
+        tags: "@kodinkuvalehti"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@kodinkuvalehti-gloria.smf.aws.sanomacloud.net/"
+
+meidanperhe:
+  suites:
+    default:
+      filters:
+        tags: "@meidanperhe"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-meidanperhe.smf.aws.sanomacloud.net/"
+
 menaiset:
   suites:
     default:
@@ -35,13 +80,81 @@ menaiset:
     Behat\MinkExtension:
       base_url: "https://sanomalifestyle:kanapalat@dev-menaiset.smf.aws.sanomacloud.net/"
 
-gloria:
+soppa365:
   suites:
     default:
       filters:
-        tags: "@gloria"
+        tags: "@soppa365"
   extensions:
     Behat\MinkExtension:
-      base_url: "https://sanomalifestyle:kanapalat@dev-gloria.smf.aws.sanomacloud.net/"
+      base_url: "https://sanomalifestyle:kanapalat@dev-soppa365.smf.aws.sanomacloud.net/"
+
+tiede:
+  suites:
+    default:
+      filters:
+        tags: "@tiede"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-tiede.smf.aws.sanomacloud.net/"
+
+vauva:
+  suites:
+    default:
+      filters:
+        tags: "@vauva"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-vauva.smf.aws.sanomacloud.net/"
+
+kekmama:
+  suites:
+    default:
+      filters:
+        tags: "@kekmama"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-kekmama.smf.aws.sanomacloud.net/"
+
+nouveau:
+  suites:
+    default:
+      filters:
+        tags: "@nouveau"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-nouveau.smf.aws.sanomacloud.net/"
+
+story:
+  suites:
+    default:
+      filters:
+        tags: "@story"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-story.smf.aws.sanomacloud.net/"
+
+veronica:
+  suites:
+    default:
+      filters:
+        tags: "@veronica"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-veronica.smf.aws.sanomacloud.net/"
+
+superguide:
+  suites:
+    default:
+      filters:
+        tags: "@superguide"
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://sanomalifestyle:kanapalat@dev-superguide.smf.aws.sanomacloud.net/"
+
+
+
+
+
 
 
