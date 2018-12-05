@@ -14,6 +14,46 @@ class FeatureContext extends RawMinkContext implements Context
 {
 
     /**
+     * @BeforeScenario
+     *
+     * @param BeforeScenarioScope $scope
+     *
+     */
+    public function setUpTestEnvironment($scope)
+    {
+        $this->currentScenario = $scope->getScenario();
+    }
+
+    /**
+     * @AfterStep
+     *
+     * @param AfterStepScope $scope
+     */
+    public function afterStep($scope)
+    {
+        //if test has failed, and is not an api test, get screenshot
+        if(!$scope->getTestResult()->isPassed())
+        {
+            //create filename string
+
+            $featureFolder = preg_replace('/\W/', '', $scope->getFeature()->getTitle());
+
+            $scenarioName = $this->currentScenario->getTitle();
+            $fileName = preg_replace('/\W/', '', $scenarioName) . '.png';
+
+            //create screenshots directory if it doesn't exist
+            if (!file_exists('results/html/assets/screenshots/' . $featureFolder)) {
+                mkdir('results/html/assets/screenshots/' . $featureFolder);
+            }
+
+            //take screenshot and save as the previously defined filename
+            $this->driver->takeScreenshot('results/html/assets/screenshots/' . $featureFolder . '/' . $fileName);
+            // For Selenium2 Driver you can use:
+            // file_put_contents('results/html/assets/screenshots/' . $featureFolder . '/' . $fileName, $this->getSession()->getDriver()->getScreenshot());
+        }
+    }
+
+    /**
      * @Then the current URL should be :url
      */
     public function theCurrentUrlShouldBe($url)

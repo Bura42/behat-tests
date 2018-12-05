@@ -7,6 +7,9 @@ default:
       - Drupal\DrupalExtension\Context\MinkContext
       - Drupal\DrupalExtension\Context\MessageContext
       - Drupal\DrupalExtension\Context\DrushContext
+  formatters:
+    html:
+      output_path: %paths.base%/reports/html/behat
   extensions:
     Behat\MinkExtension:
       base_url: "https://www.gloria.fi/"
@@ -25,6 +28,13 @@ default:
         messages: ".messages"
         tabs_primary: ".tabs-primary"
         footer: "#footer-wrapper"
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+      renderer: Behat2
+      name: html
+      file_name: index
+      print_args: true
+      print_outp: true
+      loop_break: true
 
 etlehti:
   suites:
